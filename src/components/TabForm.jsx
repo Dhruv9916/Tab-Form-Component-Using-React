@@ -9,7 +9,7 @@ function TabForm() {
     name: "Dhruv",
     age: 21,
     email: "dhruv@gmail.com",
-    interests: ["Workout", "Music"],
+    interests: ["Workout", "music","coding"],
     theme: "dark",
   });
   const [activeTab, setActiveTab] = useState(0);
