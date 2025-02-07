@@ -9,7 +9,7 @@ function TabForm() {
     name: "Dhruv",
     age: 21,
     email: "dhruv@gmail.com",
-    interests: ["Workout", "music","coding"],
+    interests: ["Workout", "music", "coding"],
     theme: "dark",
   });
   const [activeTab, setActiveTab] = useState(0);
@@ -30,6 +30,20 @@ function TabForm() {
   ];
 
   const ActiveTabComponent = tabs[activeTab].component;
+
+  const handleNextClick = () => {
+    setActiveTab((prev) => prev + 1);
+  };
+
+  const handlePrevClick = () => {
+    setActiveTab((prev) => prev - 1);
+  };
+
+  const handleSubmitClick = () => {
+    //Make Api call
+    console.log(data);
+  };
+
   return (
     <div>
       <div className="heading-container">
@@ -46,6 +60,16 @@ function TabForm() {
 
       <div className="tab-body">
         <ActiveTabComponent data={data} setData={setData} />
+      </div>
+
+      <div>
+        {activeTab > 0 && <button onClick={handlePrevClick}>Prev</button>}
+        {activeTab < tabs.length - 1 && (
+          <button onClick={handleNextClick}>Next</button>
+        )}
+        {activeTab === tabs.length - 1 && (
+          <button onClick={handleSubmitClick}>Submit</button>
+        )}
       </div>
     </div>
   );
